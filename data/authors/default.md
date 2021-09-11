@@ -1,6 +1,6 @@
 ---
 name: DeVeom
-avatar: /static/images/avatar.png
+avatar: /static/images/logo.png
 occupation: A Developer who enjoys solving probloems 🤟🏼
 email: deveomm@gmail.com
 github: https://github.com/DeVeom
