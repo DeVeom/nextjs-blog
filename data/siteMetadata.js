@@ -1,8 +1,8 @@
 const siteMetadata = {
   title: "DeVeom's Tech Blog",
   author: 'DeVeom',
-  headerTitle: "DeVeom's Tech Blog",
-  description: '시야는 넓게, 생각은 깊게',
+  headerTitle: "Hi, I'm Deveom!",
+  description: '문제 해결을 즐기는 코린이 DeVeom의 블로그입니다!',
   language: 'ko-KR',
   siteUrl: 'https://deveom-tech-blog.vercel.app',
   siteRepo: 'https://github.com/DeVeom/nextjs-blog',
