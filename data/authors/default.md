@@ -1,7 +1,8 @@
 ---
 name: DeVeom
 avatar: /static/images/logo.png
-occupation: A Developer who enjoys solving probloems 🤟🏼
+occupation: A Developer
+company: who enjoys solving probloems 🤟🏼
 email: deveomm@gmail.com
 github: https://github.com/DeVeom
 ---
