@@ -1,6 +1,6 @@
 ---
 name: DeVeom
-avatar: /static/images/deveom-logo.png
+avatar: /static/images/deveom-avatar.jpeg
 occupation: A Developer
 company: who enjoys solving probloems 🤟🏼
 email: deveomm@gmail.com

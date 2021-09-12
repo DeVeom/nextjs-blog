@@ -7,7 +7,7 @@ const siteMetadata = {
   siteUrl: 'https://deveom-tech-blog.vercel.app',
   siteRepo: 'https://github.com/DeVeom/nextjs-blog',
   siteLogo: '/static/images/deveom-logo.png',
-  image: '/static/images/deveom-logo.png',
+  image: '/static/images/deveom-avatar.jpeg',
   // socialBanner: '/static/images/twitter-card.png',
   email: 'deveomm@gmail.com',
   github: 'https://github.com/DeVeom',
