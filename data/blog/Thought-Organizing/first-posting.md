@@ -12,7 +12,7 @@ summary: 첫 번째 포스트 테스트입니다
 
 ### 타이틀 3
 
-```
+```javascript
 cosnt name = 'DeVeom'
 let desc = 'This is Deveom's Tech Blog! Welcome 🙂'
 ```
