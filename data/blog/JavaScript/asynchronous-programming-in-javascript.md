@@ -12,6 +12,8 @@ summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel
 
 ## Contents
 
+---
+
 1. **A roadmap for asynchronous programming in JavaScript**
    1. Synchronous functions
    2. JavaScript executes tasks sequentially in a single process
@@ -29,6 +31,8 @@ summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel
    1. Delevering asynchronous results via events
    2. Delevering asynchronous results via callbacks
 6. **Asynchronous code : the downsides**
+
+---
 
 ## 1. A roadmap for asynchronous programming in JavaScript
 
@@ -416,6 +420,8 @@ readFile('some-file.txt', { encoding: 'utf8' }, (error, data) => {
 
 그럼에도 비동기적 코드의 전염성은 사라지지 않지만, async 함수를 사용하면 쉽게 동기와 비동기 간의 전환을 할 수 있다는 점에서 그 단점이 조금 완화된다.
 
-> 여기까지 *Axel Rauschmayer*의 *JavaScript for impatient programmers*의 _chater 41. Asynchronous programming in JavaScript_ 를 통해 자바스크립트 내에서 비동기적인 프로그래밍을 구현하는 방법과 전체적인 흐름을 살펴볼 수 있었다.
->
-> 다음 'JavaScript 비동기 part 2' 포스트에서는 _chater 42. Promises for asynchronous programming [ES6]_ 를 통해 Promise와 그 사용 방법 등을 공부하고 다루어 보도록 하겠다.
+---
+
+여기까지 *Axel Rauschmayer*의 *JavaScript for impatient programmers*의 _chater 41. Asynchronous programming in JavaScript_ 를 통해 자바스크립트 내에서 비동기적인 프로그래밍을 구현하는 방법과 전체적인 흐름을 살펴볼 수 있었다.
+
+다음 'JavaScript 비동기 part 2' 포스트에서는 _chater 42. Promises for asynchronous programming [ES6]_ 를 통해 Promise와 그 사용 방법 등을 공부하고 다루어 보도록 하겠다.
