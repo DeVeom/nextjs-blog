@@ -12,8 +12,6 @@ summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel
 
 ## Contents
 
----
-
 1. **A roadmap for asynchronous programming in JavaScript**
    1. Synchronous functions
    2. JavaScript executes tasks sequentially in a single process
@@ -31,8 +29,6 @@ summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel
    1. Delevering asynchronous results via events
    2. Delevering asynchronous results via callbacks
 6. **Asynchronous code : the downsides**
-
----
 
 ## 1. A roadmap for asynchronous programming in JavaScript
 
@@ -270,15 +266,13 @@ function clearTimeout(handel?: any): void
 
 `setTimeout()`은 브라우저와 Node.js 모두에서 사용 가능하다.
 
-> **_`setTimeout()`은 작업들을 중단시킨다._**
->
-> _이는 `setTimeout()` 이 현재 작업을 중단하고 콜백을 통해 나중에 계속 된다는 것을 의미한다._
+**_`setTimeout()`은 작업들을 중단시킨다._** 이는 `setTimeout()` 이 현재 작업을 중단하고 콜백을 통해 나중에 계속 된다는 것을 의미한다.
 
 ### 4) Run-to-completion semantics
 
 JavaScript는 그 안에서 이루어지는 작업들에 대해서 다음을 보장한다.
 
-​ _각 작업은 다음 작업이 실행되기 전에 항상 완료된다. ("run to completion")_
+_각 작업은 다음 작업이 실행되기 전에 항상 완료된다. ("run to completion")_
 
 결과적으로, 각 작업은 진행되는 동안 데이터가 변경되는 것에 걱정할 필요가 없다(동시 수정 _concurrent modification_) . 이는 JavaScript 프로그래밍을 단순화한다. 다음의 예시는 이러한 보장을 보여준다.
 
@@ -422,8 +416,6 @@ readFile('some-file.txt', { encoding: 'utf8' }, (error, data) => {
 
 그럼에도 비동기적 코드의 전염성은 사라지지 않지만, async 함수를 사용하면 쉽게 동기와 비동기 간의 전환을 할 수 있다는 점에서 그 단점이 조금 완화된다.
 
----
-
-여기까지 *Axel Rauschmayer*의 *JavaScript for impatient programmers*의 _chater 41. Asynchronous programming in JavaScript_ 를 통해 자바스크립트 내에서 비동기적인 프로그래밍을 구현하는 방법과 전체적인 흐름을 살펴볼 수 있었다.
-
-다음 'JavaScript 비동기 part 2' 포스트에서는 _chater 42. Promises for asynchronous programming [ES6]_ 를 통해 Promise와 그 사용 방법 등을 공부하고 다루어 보도록 하겠다.
+> 여기까지 *Axel Rauschmayer*의 *JavaScript for impatient programmers*의 _chater 41. Asynchronous programming in JavaScript_ 를 통해 자바스크립트 내에서 비동기적인 프로그래밍을 구현하는 방법과 전체적인 흐름을 살펴볼 수 있었다.
+>
+> 다음 'JavaScript 비동기 part 2' 포스트에서는 _chater 42. Promises for asynchronous programming [ES6]_ 를 통해 Promise와 그 사용 방법 등을 공부하고 다루어 보도록 하겠다.
