@@ -8,7 +8,7 @@ summary: What are Semantic Web & Semantic Tags?
 
 ![semantic web technology stack](https://i.imgur.com/hjFf6z4.png)
 
-# Semantic Web
+# **Semantic Web**
 
 ## 1. Semantic Web이란?
 
@@ -43,7 +43,7 @@ summary: What are Semantic Web & Semantic Tags?
 
 ---
 
-# Semantic Tag
+# **Semantic Tag**
 
 ## 1. HTML5의 Semantic Tag
 
