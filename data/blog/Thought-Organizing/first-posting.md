@@ -14,5 +14,5 @@ summary: 첫 번째 포스트 테스트입니다
 
 ```javascript
 cosnt name = 'DeVeom'
-let desc = 'This is Deveom's Tech Blog! Welcome 🙂'
+let desc = "This is Deveom's Tech Blog! Welcome 🙂 "
 ```
