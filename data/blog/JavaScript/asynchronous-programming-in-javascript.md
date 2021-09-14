@@ -1,14 +1,14 @@
 ---
-title: JavaScript 비동기 part 1 - Asynchronous programming in JavaScript
+title: 'JavaScript 비동기 part 1 - Asynchronous programming in JavaScript'
 date: '2021-09-13'
-tags: ['JavaScript', 'Asynchronicity', 'Axel Rauschmayer', 'impatient js']
+tags: ['JavaScript', 'Asynchronicity', 'Axel Rauschmayer', 'impatient-js']
 draft: false
-summary: JavaScript 비동기 학습 내용의 첫 포스트, Dr.Axel Rauschmayer의 JavaScript for impatient programmers 책의 비동기 챕터 내용을 통해 JavaScript에서 비동기 프로그래밍이 어떻게 이루어지는지에 대한 개념과 전반적인 흐름을 확인한다.
+summary: 'JavaScript 비동기 학습 내용의 첫 포스트, Dr.Axel Rauschmayer의 JavaScript for impatient programmers 책의 비동기 챕터 내용을 통해 JavaScript에서 비동기 프로그래밍이 어떻게 이루어지는지에 대한 개념과 전반적인 흐름을 확인한다.'
 ---
 
-# **Asynchronous programming in JavaScript**
-
 **_이 포스트는 학습의 용도로 Dr. Axel Rauschmayer의 JavaScript for impatient programmers를 토대로 하여 작성되었습니다._**
+
+# **Asynchronous programming in JavaScript**
 
 ## Contents
 
