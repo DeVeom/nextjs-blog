@@ -6,13 +6,11 @@ draft: false
 summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel Rauschmayer의 JavaScript for impatient programmers의 비동기 챕터 내용을 통해 JavaScript에서 비동기 프로그래밍이 어떻게 이루어지는지에 대한 개념과 전체적인 흐름 확인한다.
 ---
 
-**_이 포스트는 학습의 용도로 Dr. Axel Rauschmayer의 JavaScript for impatient programmers를 토대로 하여 작성되었습니다._**
-
 # **Asynchronous programming in JavaScript**
 
-## Contents
+**_이 포스트는 학습의 용도로 Dr. Axel Rauschmayer의 JavaScript for impatient programmers를 토대로 하여 작성되었습니다._**
 
----
+## Contents
 
 1. **A roadmap for asynchronous programming in JavaScript**
    1. Synchronous functions
@@ -31,8 +29,6 @@ summary: JavaScript 비동기 학습 내용의 첫 번째 포스트로, Dr. Axel
    1. Delevering asynchronous results via events
    2. Delevering asynchronous results via callbacks
 6. **Asynchronous code : the downsides**
-
----
 
 ## 1. A roadmap for asynchronous programming in JavaScript
 
