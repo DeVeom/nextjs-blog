@@ -1,5 +1,5 @@
 ---
-title: 'JavaScript 비동기 part 1 - Asynchronous programming in JavaScript'
+title: JavaScript 비동기 part 1 - Asynchronous programming in JavaScript
 date: '2021-09-13'
 tags: ['JavaScript', 'Asynchronicity', 'Axel Rauschmayer', 'impatient-js']
 draft: false
@@ -159,7 +159,7 @@ f(3) // 11
 ```
 DEBUG
 Error:
-		at h (file://demos/async-js/stack_trace.mjs:2:17)
+    at h (file://demos/async-js/stack_trace.mjs:2:17)
     at g (file://demos/async-js/stack_trace.mjs:6:3)
     at f (file://demos/async-js/stack_trace.mjs:9:3)
     at file://demos/async-js/stack_trace.mjs:11:1
