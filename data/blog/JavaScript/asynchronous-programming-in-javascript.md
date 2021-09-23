@@ -3,12 +3,14 @@ title: JavaScript 비동기 part 1 - Asynchronous programming in JavaScript
 date: '2021-09-13'
 tags: ['JavaScript', 'Asynchronicity', 'Axel Rauschmayer', 'impatient-js']
 draft: false
-summary: 'JavaScript 비동기 학습 내용의 첫 포스트, Dr.Axel Rauschmayer의 JavaScript for impatient programmers 책의 비동기 챕터 내용을 통해 JavaScript에서 비동기 프로그래밍이 어떻게 이루어지는지에 대한 개념과 전반적인 흐름을 확인한다.'
+summary: JavaScript 비동기 학습 내용의 첫 포스트로 Dr.Axel Rauschmayer의 JavaScript for impatient programmers 책의 비동기 챕터 내용을 통해 JavaScript에서 비동기 프로그래밍이 어떻게 이루어지는지에 대한 개념과 전반적인 흐름을 확인한다.
 ---
 
-**_이 포스트는 학습의 용도로 Dr. Axel Rauschmayer의 JavaScript for impatient programmers를 토대로 하여 작성되었습니다._**
+### _이 포스트는 학습의 용도로 Dr. Axel Rauschmayer의 JavaScript for impatient programmers를 토대로 하여 작성되었습니다._
 
-# **Asynchronous programming in JavaScript**
+---
+
+# Asynchronous programming in JavaScript
 
 ## Contents
 
@@ -30,13 +32,15 @@ summary: 'JavaScript 비동기 학습 내용의 첫 포스트, Dr.Axel Rauschmay
    2. Delevering asynchronous results via callbacks
 6. **Asynchronous code : the downsides**
 
+---
+
 ## 1. A roadmap for asynchronous programming in JavaScript
 
 ### 1) Synchronous functions
 
-일반적인 함수들은 동기적으로 동작한다. 호출자는 피호출자가 계산을 끝마칠 때까지 기다린다. A 줄의 `divideSync()`는 동기적인 함수 호출의 예시이다.
+일반적으로 함수들은 동기적으로 동작한다. 호출자는 피호출자가 계산을 끝마칠 때까지 기다린다. Line A의 `divideSync()`는 동기적인 함수 호출의 예시이다.
 
-```javascript
+```js
 function main() {
   try {
     const result = divideSync(12, 3) // (A)
@@ -51,7 +55,7 @@ function main() {
 
 기본적으로, JavaScript 작업은 단일 프로세스에서 순차적으로 실행되는 함수이다. 그 모습은 아래의 코드와 같다.
 
-```javascript
+```js
 while (true) {
   const task = taskQueue.dequeue()
   task() // run task
@@ -64,7 +68,7 @@ while (true) {
 
 `divide()`가 결과를 계산하기 위해 서버가 필요하다면 어떻게 될까? 그렇다면 결과가 다른 방식으로 전달되어야 한다. 호출자는 결과가 준비될 때까지 기다릴 필요가 없으며(동기적), 결과가 준비되었을 때 통보를 받아야 한다(비동기적). 결과를 비동기적으로 전달하는 한 가지 방법은 호출자에게 결과를 알리는 콜백 함수를 `divide()`에 제공하는 것이다.
 
-```javascript
+```js
 function main() {
   divideCallback(12, 3, (err, result) => {
     if (err) {
@@ -93,7 +97,7 @@ Promise는 다음 두 가지로 정의될 수 있다.
 
 Promise 기반 함수를 호출하는 것은 다음과 같다.
 
-```javascript
+```js
 function main() {
   dividePromise(12, 3)
     .then((result) => assert.equal(result, 4))
@@ -105,7 +109,7 @@ function main() {
 
 Promise 기반의 코드의 가독성을 높인 것이 async 함수이다.
 
-```javascript
+```js
 async function main() {
   try {
     const result = await dividePromise(12,3); // (A)
@@ -116,7 +120,7 @@ async function main() {
 }
 ```
 
-A줄의 `dividePromise()` 함수는 이전 섹션의 Promise 기반의 함수와 같은 함수이다. 이전과 다른 것은 호출을 처리하는데 동기식 형태의 문법으로 작성할 수 있다는 것이다. `await`는 특별한 종류의 함수인 `async` 함수 내에서만 사용할 수 있다. `await`는 현재 `async` 함수를 일시 중지하고 반환(return)한다. 대기한(awaited) 결과가 준비되면 함수 실행은 중단된 곳에서 계속된다.
+Line A의 `dividePromise()` 함수는 이전 섹션의 Promise 기반의 함수와 같은 함수이다. 이전과 다른 것은 호출을 처리하는데 동기식 형태의 문법으로 작성할 수 있다는 것이다. `await`는 특별한 종류의 함수인 `async` 함수 내에서만 사용할 수 있다. `await`는 현재 `async` 함수를 일시 중지하고 반환(return)한다. 대기한(awaited) 결과가 준비되면 함수 실행은 중단된 곳에서 계속된다.
 
 ## 2. The call stack
 
@@ -124,7 +128,7 @@ A줄의 `dividePromise()` 함수는 이전 섹션의 Promise 기반의 함수와
 
 다음은 여러 호출이 발생했을 때의 예시이다.
 
-```javascript
+```js
 function h(z) {
   const error = new Error() // 2
   console.log(error.stack) // 3
@@ -156,7 +160,7 @@ f(3) // 11
 
 3번 행의 `error` 로그는 다음과 같이 출력된다.
 
-```
+```js
 DEBUG
 Error:
     at h (file://demos/async-js/stack_trace.mjs:2:17)
@@ -167,22 +171,22 @@ Error:
 
 이를 Error 객체가 생성된 위치의 이른바 스택 추적 _stack trace_ 이라고 한다. 반환 위치가 아닌 호출이 일어난 시점에서 기록된다는 점에 주의하자. 2번 행에서 예외를 생성하는 것은 또 다른 호출이며, 이것이 스택 추적에 `h()` 내부의 위치를 포함하는 이유이다.
 
-3번 행 이후, 각 함수가 종료되고 매번 호출 스택에서 최상위 항목이 제거된다. 함수 `f`가 완료되면 top-level scope로 돌아가고 스택은 비어있게 된다. 코드 조각이 종료되면 이는 마치 암시적인 반환(implicit return)과 같다. 만약 코드 조각(code fragment)을 실행되는 작업으로 간주한다면, 빈 호출 스택을 반환함으로써 작업을 종료한다.
+3번 행 이후, 각 함수가 종료되고 매번 호출 스택에서 최상위 항목이 제거된다. 함수 `f`가 완료되면 top-level scope로 돌아가고 스택은 비어있게 된다. 코드 조각(code fragment)이 종료되면 이는 마치 암시적인 반환(implicit return)을 하는 것과 같다. 코드 조각을 실행되는 작업으로 간주한다면, 빈 호출 스택을 반환함으로써 작업을 종료하는 것이다.
 
 ## 3. The event loop
 
-기본적으로 JavaScript는 웹 브라우저와 Node.js 모두에서, 단일 프로세스(single process) 내에서 실행된다. 소위 이벤트 루프 _event loop_ 라고 불리는 것은 해당 프로세스 내에서 작업(코드 조각)을 순차적으로 실행시킨다. 이벤트 루프의 구조는 그림과 같다.
+기본적으로 JavaScript는 웹 브라우저와 Node.js 모두에서, 단일 프로세스(single process) 내에서 실행된다. 소위 이벤트 루프 _Event Loop_ 라고 불리는 것은 해당 프로세스 내에서 작업(코드 조각)을 순차적으로 실행시킨다. 이벤트 루프의 구조는 그림과 같다.
 
 ![Task sources add code to run to the task queue, which is emptied by the event loop](https://i.imgur.com/b1XIt2i.png)
 
 그림에서 볼 수 있듯이 두 개의 영역이 작업 대기열 _task queue_ 에 엑세스하고 있다.
 
 - 작업 소스 _task sources_ 는 대기열 queue에 작업을 추가한다. 이러한 소스 중 일부는 JavaScript 프로세스와 동시에 실행된다. 예를 들어, 사용자 인터페이스 이벤트를 처리하는 하나의 소스가 있다고 할 때, 사용자가 어딘가를 클릭하고 이벤트 리스너가 등록된 경우 해당 리스터의 호출이 작업 대기열에 추가된다.
-- 이벤트 루프 _event loop_ 는 JavaScript 프로세스 내에서 계속해서 실행된다. 각 루프가 반복될 동안 대기열 queue 에서 하나의 작업을 가져와 실행한다. (대기열이 비어 있으면, 비어 있지 않을 때까지 기다린다.) 해당 작업은 호출 스택이 비어있고 반환되었을 때만 완료된다. 이벤트 루프로 제어가 다시 넘어가고 대기열 queue 에서 다음 작업을 검색하고 실행한다.
+- 이벤트 루프 _Event Loop_ 는 JavaScript 프로세스 내에서 계속해서 실행된다. 각 루프가 반복될 동안 대기열 queue 에서 하나의 작업을 가져와 실행한다. (대기열이 비어 있으면, 비어 있지 않을 때까지 기다린다.) 해당 작업은 호출 스택이 비어있고 반환되었을 때만 완료된다. 이벤트 루프로 제어가 다시 넘어가고 대기열 queue 에서 다음 작업을 검색하고 실행한다.
 
 다음 JavaScript 코드는 이벤트 루프와 비슷한(이벤트 루프에 근사한) 코드이다.
 
-```javascript
+```js
 while (true) {
   const task = taskQueue.dequeue()
   task() // run task
@@ -205,7 +209,7 @@ while (true) {
 
 "Block"을 클릭하면 JavaScript를 통해 긴 시간의 루프가 실행된다. 해당 루프 동안에는 브라우저, JavaScript 프로세스가 차단되어 버튼을 클릭할 수 없다. 이를 구현한 간단한 JavaScript 코드는 다음과 같다.
 
-```javascript
+```js
 document.getElementById('block').addEventListner('click', doBlock) // (A)
 
 function doBlock(event) {
@@ -225,12 +229,12 @@ function displayStatus(status) {
 }
 ```
 
-위의 코드 진행을 풀어보면 다음과 같다.
+위 코드의 진행을 풀어보면 다음과 같다.
 
 - Line A: ID가 block인 HTML 요소를 클릭할 때마다 브라우저에 `doBlock()`을 호출하도록 지시한다.
 - `doBlock()`은 상태 정보를 표시한 다음 `sleep()`을 호출하여 5000밀리초 동안 JavaScript 프로세스를 차단한다. (Line B)
 - `sleep()`은 충분한 시간이 경과할 때까지 반복하여 JavaScript 프로세스를 차단한다.
-- `displayStatus()`는 ID가 statusMessage인 <div> 내에 상태 메시지를 표시한다.
+- `displayStatus()`는 ID가 statusMessage인 `<div>` 내에 상태 메시지를 표시한다.
 
 ### 2) How can we avoid blocking the browser?
 
@@ -252,16 +256,16 @@ function displayStatus(status) {
 
 ### 3) Taking breaks
 
-다음 전역 함수는 ms 밀리초의 지연 후에 매개변수 콜백을 실행한다. (`setTimeout()에 대한 단순한 설명이며, 더 많은 기능이 있다.)
+다음 전역 함수는 ms 밀리초의 지연 후에 매개변수 콜백을 실행한다. (`setTimeout()`에 대한 단순한 설명이며, 더 많은 기능이 있다.)
 
-```javascript
+```js
 function setTimeout(callback: () => void, ms: number): any
 ```
 
 위의 함수는 다음 전역 함수를 통해 타임아웃(콜백 실행 취소)을 지우는데(_clear_) 사용할 수 있는 _handle_(ID)을 반환한다.
 
-```javascript
-function clearTimeout(handel?: any): void
+```js
+function clearTimeout(handle?: any): void
 ```
 
 `setTimeout()`은 브라우저와 Node.js 모두에서 사용 가능하다.
@@ -276,7 +280,7 @@ _각 작업은 다음 작업이 실행되기 전에 항상 완료된다. ("run t
 
 결과적으로, 각 작업은 진행되는 동안 데이터가 변경되는 것에 걱정할 필요가 없다(동시 수정 _concurrent modification_) . 이는 JavaScript 프로그래밍을 단순화한다. 다음의 예시는 이러한 보장을 보여준다.
 
-```javascript
+```js
 console.log('start')
 setTimeout(() => {
   console.log('callback')
@@ -320,7 +324,7 @@ JavaScript의 세계에는 이 패턴의 여러 유형이 있다. 다음 세 가
 
 IndexedDB는 웹 브라우저에 내장된 데이터베이스이다. 다음은 그 사용 예시이다.
 
-```javascript
+```js
 const openRequest = indexedDB.open('MyDatabase', 1) // (A)
 
 openRequest.onsuccess = (event) => {
@@ -343,7 +347,7 @@ openRequest.onerror = (error) => {
 
 XMLHttpRequest API를 사용하면 웹 브라우저에서 다운로드 작업을 할 수 있다. 다음은 http://example.com/textfile.txt 파일을 다운로드 하는 예시이다.
 
-```javascript
+```js
 const xhr = new XMLHttpRequest() // (A)
 xhr.open('GET', 'http://example.com/textfile.txt') // (B)
 xhr.onload = () => {
@@ -375,7 +379,7 @@ function processData(str) {
 
 우리는 이미 DOM 이벤트의 동작을 4-1. "The user interface of the browser can be blocked" 챕터에서 살펴봤다. 다음은 `click` 이벤트를 처리하는 예시 코드이다.
 
-```javascript
+```js
 const element = document.getElementById('my-link') // (A)
 element.addEventListner('click', clickLisnter) // (B)
 
@@ -391,9 +395,9 @@ function clickListener(event) {
 
 콜백은 비동기 결과를 처리하기 위한 또 다른 패턴이다. 일회성 결과에만 사용되며 이벤트보다 덜 장황하다는(코드가 간결하다는) 장점이 있다.
 
-예를 들어, 텍스트 파일을 읽고 그 내용을 비동기적으로 반환하는 함수 `readFile()`을 떠올려보자. Node.js 스타일의 콜백을 사용하는 경우에`readFile()`을 호출하는 방법은 다음과 같다.
+예를 들어, 텍스트 파일을 읽고 그 내용을 비동기적으로 반환하는 함수 `readFile()`을 떠올려보자. Node.js 스타일의 콜백을 사용하는 경우에 `readFile()`을 호출하는 방법은 다음과 같다.
 
-```javascript
+```js
 readFile('some-file.txt', { encoding: 'utf8' }, (error, data) => {
   if (error) {
     assert.fail(error)
